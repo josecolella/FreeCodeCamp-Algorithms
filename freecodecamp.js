@@ -124,7 +124,7 @@ function where(collection, source) {
     });
     // What's in a name?
 }
-
+/*
 function destroyer(arr) {
     // Remove all the values
     for (var i = 1; i < arguments.length; i++) {
@@ -136,6 +136,7 @@ function destroyer(arr) {
     return arr;
 
 }
+*/
 
 
 //console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));

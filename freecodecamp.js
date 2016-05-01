@@ -1,3 +1,6 @@
+/*jslint node: true */
+'use strict';
+
 function reverseString(str) {
     return str.split("").reverse().join("");
 }
@@ -6,8 +9,7 @@ function reverseString(str) {
 function palindrome(str) {
     // Good luck!
     //cleanStrRegexExp = new RegExp(/[^a-zA-Z0-9]/g, 'g');
-    cleanStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-    console.log(cleanStr);
+    var cleanStr = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
     for (var i = 0, j = cleanStr.length - 1; i <= j; i++, j--) {
         if (cleanStr[i] !== cleanStr[j]) {
             console.log("I " + cleanStr[i] + " J " + cleanStr[j]);
@@ -18,7 +20,7 @@ function palindrome(str) {
 }
 
 function findLongestWord(str) {
-    sortedStrLenList = str.split(' ').map(function(str) {
+    var sortedStrLenList = str.split(' ').map(function(str) {
         var wordLengthHash = {
             "str": str,
             "len": str.length
@@ -39,7 +41,7 @@ function findLongestWord(str) {
 
 function titleCase(str) {
     return str.split(" ").map(function(str) {
-        upperCaseFirstWord = str[0].toUpperCase() + str.toLowerCase() + str.slice(1, str.length);
+        var upperCaseFirstWord = str[0].toUpperCase() + str.toLowerCase() + str.slice(1, str.length);
         return upperCaseFirstWord;
     }).join(" ");
 }
@@ -134,6 +136,7 @@ function destroyer(arr) {
     return arr;
 
 }
+
 
 //console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
 

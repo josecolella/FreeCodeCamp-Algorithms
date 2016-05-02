@@ -6,6 +6,13 @@ module.exports = {
     reverseString: function(str) {
         return str.split("").reverse().join("");
     },
+    factorialize: function(num) {
+        if (num === 0 || num === 1) {
+            return 1;
+        } else {
+            return num * factorialize(num - 1);
+        }
+    },
     palindrome: function(str) {
         // Good luck!
         //cleanStrRegexExp = new RegExp(/[^a-zA-Z0-9]/g, 'g');
@@ -104,17 +111,7 @@ module.exports = {
         });
         return filterArray;
     },
-    where: function(collection, source) {
-        var arr = [];
-        var sourceKeys = Object.keys(source);
-        console.log(sourceKeys);
-        return collection.filter(function(elem) {
-            return elem.hasOwnProperty(sourceKeys[0]) && elem[sourceKeys[0]] == source[sourceKeys[0]];
-        });
-        // What's in a name?
-    },
-    /*
-    function destroyer(arr) {
+    destroyer: function(arr) {
         // Remove all the values
         for (var i = 1; i < arguments.length; i++) {
             var currentArgument = arguments[i];
@@ -123,11 +120,10 @@ module.exports = {
             });
         }
         return arr;
-
-    }
-    */
-    where: function(arr, num) {
+    },
+    getIndexToIns: function(arr, num) {
         // Find my place in this sorted array.
+        var index = undefined;
         var sortedArray = arr.sort(function compare(a, b) {
             if (a < b) {
                 return -1;
@@ -138,11 +134,26 @@ module.exports = {
             // a must be equal to b
             return 0;
         });
-
         var filteredArray = sortedArray.filter(function(elem, index) {
             return elem >= num;
         });
-
-        return sortedArray.indexOf(filteredArray[0]);
+        if (filteredArray.length > 0) {
+            index = sortedArray.indexOf(filteredArray[0]);
+        } else {
+            index = sortedArray.length;
+        }
+        return index;
+    },
+    rot13: function(str) {
+        return str.split("").map(function(elem) {
+            var cipherRotation = 13;
+            var letterValue = elem.charCodeAt(0);
+            if (letterValue >= 65 && letterValue <= 90) {
+                var cipherLetter = letterValue + cipherRotation > 90 ? String.fromCharCode(letterValue - cipherRotation) : String.fromCharCode(letterValue + 13);
+                return cipherLetter;
+            } else {
+                return elem;
+            }
+        }).join("");
     }
 };

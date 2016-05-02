@@ -4,9 +4,11 @@
   "author": "Jose Miguel Colella",
   "version": "0.0.1",
   "devDependencies": {
-    "jshint": "^2.9.2"
+    "chai": "^3.5.0",
+    "jshint": "^2.9.2",
+    "mocha": "^2.4.5"
   },
   "scripts": {
-    "test": "./node_modules/jshint/bin/jshint freecodecamp.js"
+    "test": "./node_modules/mocha/bin/mocha basicAlgorithms.js"
   }
 }
